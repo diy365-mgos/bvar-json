@@ -1,0 +1,23 @@
+author: DIY365
+type: lib
+description: Mongoose OS library allowing bVariants JSON serialization/deserialization.
+version: 1.0
+
+build_vars:
+  MGOS_BVAR_HAVE_JSON: 1
+
+includes:
+  - include
+
+filesystem:
+  - fs
+
+config_schema:
+
+libs:
+  - origin: https://github.com/diy365-mgos/bvar
+
+tags:
+  - c
+
+manifest_version: 2017-09-29
