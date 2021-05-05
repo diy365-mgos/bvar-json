@@ -1,4 +1,4 @@
-# bVariant JSON Support Library
+# bVariant JSON Library
 ## Overview
 This Mongoose OS library allows you to serialize/deserialize *bVariants* [variables](https://github.com/diy365-mgos/bvar) and [dictionaries](https://github.com/diy365-mgos/bvar-dic) to/from JSON.
 ## Features
