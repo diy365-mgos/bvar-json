@@ -3,7 +3,7 @@ type: lib
 description: Mongoose OS library allowing bVariants JSON serialization/deserialization.
 version: 1.0
 
-build_vars:
+cdefs:
   MGOS_BVAR_HAVE_JSON: 1
 
 includes:
