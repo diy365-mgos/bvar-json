@@ -77,8 +77,9 @@ Returns the *bVariant* deserialized from the provided JSON string, or `NULL` if 
 int json_printf_bvar(struct json_out *out, va_list *ap);
 ```
 A helper `%M` callback for [Frozen printing APIs](https://github.com/cesanta/frozen) that prints the provided *bVariant*. Consumes `mgos_bvar_t var`. Returns number of bytes printed.
+
+Example:
 ```c
-// Example
 mgos_bvar_t var = mgos_bvar_new_str("Mark");
 char *json = json_asprintf("%M", json_printf_bvar, var);
 ```
