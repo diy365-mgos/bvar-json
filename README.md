@@ -1,6 +1,6 @@
 # bVariant JSON Library
 ## Overview
-This Mongoose OS library allows you to serialize/deserialize bVariants [variables](https://github.com/diy365-mgos/bvar) and [dictionaries](https://github.com/diy365-mgos/bvar-dic) to/from JSON.
+This Mongoose OS library allows you to serialize/deserialize [bVariants](https://github.com/diy365-mgos/bvar) and [bVariantDictionaries](https://github.com/diy365-mgos/bvar-dic) to/from JSON.
 ## Features
 - **Deserialize from JSON** - Deserialize a JSON string into a dynamically allocated bVariant.
 - **Serialize to JSON** - Serialize a bVariant into a JSON string.
@@ -19,7 +19,7 @@ mgos_bvar_t d = mgos_bvar_json_scanf("378.340");  // JSON to decimal
 mgos_bvar_t b = mgos_bvar_json_scanf("true");     // JSON to boolean
 mgos_bvar_t s = mgos_bvar_json_scanf("\"AAA\"");  // JSON to string
 ```
-#### Example 2 - Deserialize a JSON object into a dictionary
+#### Example 2 - Deserialize a JSON object into a bVariantDictionary
 In addition, include this library in your `mos.yml` file.
 ```yaml
 libs:
@@ -50,7 +50,7 @@ char *json = json_asprintf("%M", json_printf_bvar, var);
 printf("JSON: %s", json); // JSON: 122.200000
 free(json);
 ```
-#### Example 4 - Serialize a dictionary to JSON
+#### Example 4 - Serialize a bVariantDictionary to JSON
 In addition, include this library in your `mos.yml` file.
 ```yaml
 libs:
