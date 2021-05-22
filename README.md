@@ -1,20 +1,16 @@
 # bVariant JSON Library
 ## Overview
-This Mongoose OS library allows you to serialize/deserialize *bVariants* [variables](https://github.com/diy365-mgos/bvar) and [dictionaries](https://github.com/diy365-mgos/bvar-dic) to/from JSON.
+This Mongoose OS library allows you to serialize/deserialize bVariants [variables](https://github.com/diy365-mgos/bvar) and [dictionaries](https://github.com/diy365-mgos/bvar-dic) to/from JSON.
 ## Features
-- **Deserialize from JSON** - Deserialize a JSON string into a dynamically allocated *bVariant*.
-- **Serialize to JSON** - Serialize a *bVariant* into a JSON string.
-## Get Started
+- **Deserialize from JSON** - Deserialize a JSON string into a dynamically allocated bVariant.
+- **Serialize to JSON** - Serialize a bVariant into a JSON string.
+## Get Started in C/C++ 
 Include the library into your `mos.yml` file.
 ```yaml
 libs:
   - origin: https://github.com/diy365-mgos/bvar-json
-  # Optional. Include bvar-dic library to enable JSON support for dictionaries
-  - origin: https://github.com/diy365-mgos/bvar-dic
 ```
-**C/C++ sample code**
-
-Deserialize JSON strings into *bVariants*.
+#### Example 1 - Deserialize JSON into bVariants
 ```c
 #include "mgos_bvar_json.h"
 
@@ -23,7 +19,12 @@ mgos_bvar_t d = mgos_bvar_json_scanf("378.340");  // JSON to decimal
 mgos_bvar_t b = mgos_bvar_json_scanf("true");     // JSON to boolean
 mgos_bvar_t s = mgos_bvar_json_scanf("\"AAA\"");  // JSON to string
 ```
-Deserialize a JSON object into a dictionary (this requires the [bVariant Dictionary library](https://github.com/diy365-mgos/bvar-dic) to be included in your `mos.yml` file). 
+#### Example 2 - Deserialize a JSON object into a dictionary
+In addition, include this library in your `mos.yml` file.
+```yaml
+libs:
+  - origin: https://github.com/diy365-mgos/bvar-dic
+```
 ```c
 #include "mgos_bvar_dic.h"
 #include "mgos_bvar_json.h"
@@ -40,7 +41,7 @@ Deserialize a JSON object into a dictionary (this requires the [bVariant Diction
 const char *json = "{\"Name\":\"Mark\",\"Fhater\":{\"Name\":\"Gregory\",\"Age\":80},\"Age\":46}";
 mgos_bvar_t dic = mgos_bvar_json_scanf(json);
 ```
-Serialize a *bVariant* to JSON.
+#### Example 3 - Serialize a bVariant to JSON
 ```c
 #include "mgos_bvar_json.h"
 
@@ -49,7 +50,12 @@ char *json = json_asprintf("%M", json_printf_bvar, var);
 printf("JSON: %s", json); // JSON: 122.200000
 free(json);
 ```
-Serialize a dictionary to JSON (this requires the [bVariant Dictionary library](https://github.com/diy365-mgos/bvar-dic) to be included in your `mos.yml` file). 
+#### Example 4 - Serialize a dictionary to JSON
+In addition, include this library in your `mos.yml` file.
+```yaml
+libs:
+  - origin: https://github.com/diy365-mgos/bvar-dic
+```
 ```c
 #include "mgos_bvar_dic.h"
 #include "mgos_bvar_json.h"
@@ -67,7 +73,7 @@ free(json);
 ```c
 mgos_bvar_t mgos_bvar_json_scanf(const char *json);
 ```
-Returns the *bVariant* deserialized from the provided JSON string, or `NULL` if error. The returned instance must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
+Returns the bVariant deserialized from the provided JSON string, or `NULL` if error. The returned instance must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
 
 |Parameter||
 |--|--|
@@ -76,7 +82,7 @@ Returns the *bVariant* deserialized from the provided JSON string, or `NULL` if 
 ```c
 int json_printf_bvar(struct json_out *out, va_list *ap);
 ```
-A helper `%M` callback for [Frozen printing APIs](https://github.com/cesanta/frozen) that prints the provided *bVariant*. Consumes `mgos_bvar_t var`. Returns number of bytes printed.
+A helper `%M` callback for [Frozen printing APIs](https://github.com/cesanta/frozen) that prints the provided bVariant. Consumes `mgos_bvar_t var`. Returns number of bytes printed.
 
 Example:
 ```c
@@ -84,5 +90,5 @@ mgos_bvar_t var = mgos_bvar_new_str("Mark");
 char *json = json_asprintf("%M", json_printf_bvar, var);
 ```
 ## To Do
-- Implement serialization/deserialization of *bVariant* arrays.
+- Implement serialization/deserialization of bVariant arrays.
 - Implement javascript APIs for [Mongoose OS MJS](https://github.com/mongoose-os-libs/mjs).
