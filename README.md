@@ -5,7 +5,7 @@ This Mongoose OS library allows you to serialize/deserialize [bVariants](https:/
 - **Deserialize from JSON** - Deserialize a JSON string into a dynamically allocated bVariant.
 - **Serialize to JSON** - Serialize a bVariant into a JSON string.
 ## Get Started in C/C++ 
-Include the library into your `mos.yml` file.
+Include the library in your `mos.yml` file.
 ```yaml
 libs:
   - origin: https://github.com/diy365-mgos/bvar-json
