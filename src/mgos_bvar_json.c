@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "mgos_bvar_json.h"
 
 bool mgos_bvar_json_can_scanf(const char *payload) {
