@@ -86,8 +86,27 @@ Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if er
 
 |Parameter||
 |--|--|
-|json|The char buffer in JSON format to deserialize.|
+|json|The buffer in JSON format to deserialize.|
 |json_len|The buffer length.|
+### mgos_bvar_json_can_scanf
+```c
+bool mgos_bvar_json_can_scanf(const char *payload);
+```
+Returns `true` if the payload can be deserialized using `mgos_bvar_json_scanf()`, or `false` otherwise.
+
+|Parameter||
+|--|--|
+|payload|The payload.|
+### mgos_bvar_json_can_bscanf
+```c
+bool mgos_bvar_json_can_bscanf(const char *payload, int payload_len);
+```
+Returns `true` if the payload can be deserialized using `mgos_bvar_json_bscanf()`, or `false` otherwise. This is a specialized version of `mgos_bvar_json_can_scanf()`.
+
+|Parameter||
+|--|--|
+|payload|The payload.|
+|payload|The payload length.|
 ### json_printf_bvar
 ```c
 int json_printf_bvar(struct json_out *out, va_list *ap);
