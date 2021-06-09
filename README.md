@@ -78,6 +78,16 @@ Returns the bVariant deserialized from the provided JSON string, or `NULL` if er
 |Parameter||
 |--|--|
 |json|The string in JSON format to deserialize.|
+### mgos_bvar_json_bscanf
+```c
+mgos_bvar_t mgos_bvar_json_bscanf(const char *json, int json_len);
+```
+Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if error. The returned instance must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
+
+|Parameter||
+|--|--|
+|json|The char buffer in JSON format to deserialize.|
+|json_len|The buffer length.|
 ### json_printf_bvar
 ```c
 int json_printf_bvar(struct json_out *out, va_list *ap);
