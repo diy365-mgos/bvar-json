@@ -9,6 +9,9 @@ cdefs:
 includes:
   - include
 
+sources:
+  - src
+
 filesystem:
   - fs
 
