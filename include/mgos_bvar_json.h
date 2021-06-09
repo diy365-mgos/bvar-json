@@ -34,6 +34,7 @@ extern "C" {
 int json_printf_bvar(struct json_out *out, va_list *ap);
 
 mgos_bvar_t mgos_bvar_json_scanf(const char *json);
+mgos_bvar_t mgos_bvar_json_bscanf(const char *json, int json_len);
 
 #ifdef __cplusplus
 }
