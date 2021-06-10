@@ -88,25 +88,27 @@ Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if er
 |--|--|
 |json|The buffer in JSON format to deserialize.|
 |json_len|The buffer length.|
-### mgos_bvar_json_can_scanf
+### mgos_bvar_json_try_scanf
 ```c
-bool mgos_bvar_json_can_scanf(const char *payload);
+bool mgos_bvar_json_can_scanf(const char *payload, mgos_bvar_t *out_var);
 ```
-Returns `true` if the payload can be deserialized using `mgos_bvar_json_scanf()`, or `false` otherwise.
+Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_scanf()`, or `false` otherwise.
 
 |Parameter||
 |--|--|
 |payload|The payload.|
-### mgos_bvar_json_can_bscanf
+|out_var|The output deserialized bVariant.|
+### mgos_bvar_json_try_bscanf
 ```c
-bool mgos_bvar_json_can_bscanf(const char *payload, int payload_len);
+bool mgos_bvar_json_try_bscanf(const char *payload, int payload_len, mgos_bvar_t *out_var);
 ```
-Returns `true` if the payload can be deserialized using `mgos_bvar_json_bscanf()`, or `false` otherwise. This is a specialized version of `mgos_bvar_json_can_scanf()`.
+Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_bscanf()`, or `false` otherwise. This is a specialized version of `mgos_bvar_json_try_scanf()`.
 
 |Parameter||
 |--|--|
 |payload|The payload.|
 |payload|The payload length.|
+|out_var|The output deserialized bVariant.|
 ### json_printf_bvar
 ```c
 int json_printf_bvar(struct json_out *out, va_list *ap);
