@@ -3,14 +3,14 @@
 #include <stdbool.h>
 #include "mgos_bvar_json.h"
 
-bool mgos_bvar_json_can_scanf(const char *payload) {
-  return mgos_bvar_json_can_bscanf(payload, (payload ? strlen(payload) : 0));
+bool mgos_bvar_json_try_scanf(const char *payload, mgos_bvar_t *out_var) {
+  *out_var = mgos_bvar_json_scanf(payload);
+  return (out_var != NULL);
 }
 
-bool mgos_bvar_json_can_bscanf(const char *payload, int payload_len) {
-  return false;
-  (void) payload;
-  (void) payload_len;
+bool mgos_bvar_json_try_bscanf(const char *payload, int payload_len, mgos_bvar_t *out_var) {
+  *out_var = mgos_bvar_json_bscanf(payload, payload_len);
+  return (out_var != NULL);
 }
 
 bool mgos_bvar_json_init() {
