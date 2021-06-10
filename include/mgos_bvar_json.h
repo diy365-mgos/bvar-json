@@ -36,8 +36,8 @@ int json_printf_bvar(struct json_out *out, va_list *ap);
 mgos_bvar_t mgos_bvar_json_scanf(const char *json);
 mgos_bvar_t mgos_bvar_json_bscanf(const char *json, int json_len);
   
-bool mgos_bvar_json_can_scanf(const char *payload);
-bool mgos_bvar_json_can_bscanf(const char *payload, int payload_len);
+bool mgos_bvar_json_try_scanf(const char *payload, mgos_bvar_t *out_var);
+bool mgos_bvar_json_try_bscanf(const char *payload, int payload_len, mgos_bvar_t *out_var);
 
 #ifdef __cplusplus
 }
