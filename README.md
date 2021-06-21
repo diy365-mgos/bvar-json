@@ -82,7 +82,7 @@ Returns the bVariant deserialized from the provided JSON string, or `NULL` if er
 ```c
 mgos_bvar_t mgos_bvar_json_bscanf(const char *json, int json_len);
 ```
-Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if error. The returned instance must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
+Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if error. The returned instance must be disposed using [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free).
 
 |Parameter||
 |--|--|
@@ -92,7 +92,7 @@ Returns the bVariant deserialized from the provided JSON buffer, or `NULL` if er
 ```c
 bool mgos_bvar_json_can_scanf(const char *payload, mgos_bvar_t *out_var);
 ```
-Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_scanf()`, or `false` otherwise.
+Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_scanf()`, or `false` otherwise. The `out_var` instance must be disposed using [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free).
 
 |Parameter||
 |--|--|
@@ -102,7 +102,7 @@ Returns `true` if the payload has been successfully deserialized using `mgos_bva
 ```c
 bool mgos_bvar_json_try_bscanf(const char *payload, int payload_len, mgos_bvar_t *out_var);
 ```
-Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_bscanf()`, or `false` otherwise. This is a specialized version of `mgos_bvar_json_try_scanf()`.
+Returns `true` if the payload has been successfully deserialized using `mgos_bvar_json_bscanf()`, or `false` otherwise. This is a specialized version of `mgos_bvar_json_try_scanf()`. The `out_var` instance must be disposed using [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free).
 
 |Parameter||
 |--|--|
